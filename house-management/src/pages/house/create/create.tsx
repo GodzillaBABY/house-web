@@ -54,7 +54,7 @@ const Create = () => {
   useEffect(() => {
     // console.log(imgList, 333333)
     // create.setFieldsValue
-    imgRef.current.setFieldsValue({ room: { image: imgList } });
+    imgRef.current.setFieldsValue({ room: { roomImages: imgList } });
   }, [imgList])
   //添加图片数组到方法
   const getImageUpload = (imgListR: Array<any>) => {
@@ -69,7 +69,7 @@ const Create = () => {
       return imgListN
     })
     setImgList(imgListN)
-    imgRef.current.setFieldsValue({ room: { image: imgListN } });
+    imgRef.current.setFieldsValue({ room: { roomImages: imgListN } });
   }
   const onDistrictsChange = (districts: any) => {
     setDistricts(districts)
@@ -107,7 +107,7 @@ const Create = () => {
         </Form.Item>
         <Form.Item
           className='creat-form-item'
-          name={['room', 'image']} label='房源图片'
+          name={['room', 'roomImages']} label='房源图片'
           rules={[{ required: true }]}
         >
           <ImageUpload handleUploadCB={getImageUpload} />
